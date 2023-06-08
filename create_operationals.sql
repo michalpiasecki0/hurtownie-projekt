@@ -9,6 +9,8 @@ GO
 
 USE Operacyjna;
 
+
+
 CREATE TABLE LokalizacjeMiast (
 	nazwa nvarchar(50) not null primary key,
 	wojewodztwo nvarchar(50),
