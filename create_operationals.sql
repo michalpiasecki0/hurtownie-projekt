@@ -45,6 +45,7 @@ CREATE TABLE AirQuality (
 
 CREATE TABLE Klimat (
 	id int not null primary key identity(1,1),
+	measurementdate date not null,
 	stacja nvarchar(50) not null references lokalizacjestacji(nazwa),
 	tmin float,
 	tavg float,
@@ -76,6 +77,7 @@ Status pomiaru PKSN                     1
 -- mozna dodac wiecej 
 CREATE TABLE gacf (
 	id int not null primary key identity(1,1),
+	measurementdate date not null,
 	szerokosc float not null,
 	dlugosc float not null,
 	uwind float,
