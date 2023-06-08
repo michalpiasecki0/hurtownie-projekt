@@ -73,4 +73,13 @@ Status pomiaru PKSN                     1
 
 
 -- CAMS global atmospheric composition forecasts
-
+-- mozna dodac wiecej 
+CREATE TABLE gacf (
+	id int not null primary key identity(1,1),
+	szerokosc float not null,
+	dlugosc float not null,
+	uwind float,
+	vwind float,
+	tenuwind float,
+	tenvwind float
+)
