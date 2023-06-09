@@ -15,13 +15,54 @@ create table miastodim (
 	dlugosc float not null,
 )
 
-create table datedim (
-	id int not null identity(1,1) primary key,
-	realdate date not null,
-	dayofweekval int not null,
-	monthval int not null,
-	yearval int not null
-)
+CREATE TABLE datedim (
+    id INT PRIMARY KEY,
+    FullDate DATE,
+    Day INT,
+    Month INT,
+    Year INT,
+    DayOfWeek INT,
+    DayName VARCHAR(20),
+    MonthName VARCHAR(20),
+    Quarter INT,
+    IsWeekend BIT
+);
+
+GO
+
+DECLARE @StartDate DATE = '2020-01-01';
+DECLARE @EndDate DATE = '2040-12-31';
+
+WHILE @StartDate <= @EndDate
+BEGIN
+    INSERT INTO datedim (
+        id,
+        FullDate,
+        Day,
+        Month,
+        Year,
+        DayOfWeek,
+        DayName,
+        MonthName,
+        Quarter,
+        IsWeekend
+    )
+    VALUES (
+        CONVERT(INT, CONVERT(VARCHAR(8), @StartDate, 112)),
+        @StartDate,
+        DAY(@StartDate),
+        MONTH(@StartDate),
+        YEAR(@StartDate),
+        DATEPART(WEEKDAY, @StartDate),
+        DATENAME(WEEKDAY, @StartDate),
+        DATENAME(MONTH, @StartDate),
+        DATEPART(QUARTER, @StartDate),
+        CASE WHEN DATEPART(WEEKDAY, @StartDate) IN (1, 7) THEN 1 ELSE 0 END
+    );
+
+    SET @StartDate = DATEADD(DAY, 1, @StartDate);
+END;
+
 
 
 create table KlimatFakt (
