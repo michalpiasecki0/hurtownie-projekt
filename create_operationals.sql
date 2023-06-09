@@ -37,6 +37,8 @@ CREATE TABLE AirQuality (
 	pmtenwildfires float not null,
 	nitrogen float not null,
 	dust float not null,
+	sz float,
+	dl float
 )
 
 
