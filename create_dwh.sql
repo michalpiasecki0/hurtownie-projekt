@@ -84,6 +84,7 @@ create table KlimatFakt (
 create table qualityfact (
 	id int not null identity(1,1) primary key,
 	dateid int references datedim(id),
+	miastoid int references  miastodim(id),
 	pmten float not null,
 	pmtwofive float not null,
 	pmtenwildfires float not null,
