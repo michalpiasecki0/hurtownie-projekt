@@ -1,5 +1,9 @@
 import numpy as np
 import pandas as pd
+import pyodbc
+
+CONNECTION_STRING = ''
+
 def get_kd_data_for_date(month, year=2022):
     kd_cols = ['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień', 'tmax', 'tmax_status',
                'tmin', 'tmin_status', 'tavg', 'tavg_status', 'tmin_grunt', 'tmin_grunt_status',
@@ -37,5 +41,12 @@ b = pd.concat(kdt)
 a = a.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 b = b.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 c = pd.concat([a,b], axis=1)
-c= c.reset_index()
-c
+c = c.reset_index()
+conn = pyodbc.connect(CONNECTION_STRING)
+cursor = conn.cursor()
+for row in c:
+    sql = f'INSERT INTO Klimat (measurementdate , stacja, tmin, tavg, tmax, opad) VALUES' \
+          f' ({row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}, {row.nazwa_stacji}, {row.tmin}, {row.tavg},{row.tmax}, {row.opad})'
+    cursor.execute(sql)
+cursor.commit()
+conn.close()
