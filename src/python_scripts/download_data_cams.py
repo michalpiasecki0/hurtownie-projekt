@@ -2,6 +2,7 @@ import cdsapi
 import xarray as xr
 
 from typing import Optional
+from pathlib import Path
 
 def get_month_days_amount(month_number: int) -> int:
     assert 1 <= month_number <= 12, "Invalid month number"
@@ -60,19 +61,25 @@ def convert_single_nc_to_csv(nc_path: str,
                              month_number: Optional[int] = None) -> None:
     if not month_number:
         month_number = nc_path.split(sep='/')[-1].split(sep='.')[0]
+    def _internal_convert_time_column(time_delta):
+        return f'{str((time_delta.days + 1)).zfill(2)}-{str(month_number).zfill(2)}-2022'
     dataset = xr.open_dataset(nc_path)
     dataset =dataset.to_dataframe()
     # remove level from index columns, everything measured on surface
     dataset.reset_index(level=["level"], inplace=True)
     dataset.drop(columns=["level"], inplace=True)
     #
-    dataset.index = dataset.index.map(lambda k: (k[0], k[1], f'{(k[2].days + 1):0{2}}-{month_number:0{2}}-2022'))
-    dataset.to_csv(f"{output_csv_folder}/{month_number:0{2}}.csv")    
+    dataset.index = dataset.index.map(lambda k: (k[0], k[1], _internal_convert_time_column(k[2])))
+    dataset.to_csv(f"{output_csv_folder}/{str(month_number).zfill(2)}.csv")    
     
 
 if __name__ == "__main__":
-    convert_single_nc_to_csv(nc_path="data/air_quality_forecasts/1.nc",
-                             output_csv_folder="data/air_quality_forecasts/csvki")
+    for path in Path("data/air_quality_forecasts").iterdir():
+        if path.is_file():
+            print(path.stem)
+            convert_single_nc_to_csv(nc_path=f"data/air_quality_forecasts/{path.name}",
+                                     output_csv_folder="data/air_quality_forecasts/csvki",
+                                    )
     """
     for i in range(1, 13, 1):
         days_month = get_month_days_amount(month_number=i)
