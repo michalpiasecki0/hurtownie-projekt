@@ -1,8 +1,11 @@
 import bs4
 import pandas as pd
-import pyodbc
+import pymssql
 
-CONNECTION_STRING = ''
+SERVER = 'MIKOLAJ2'
+LOGIN = 'wtykacz'
+PASSWORD = 'zcakytw'
+
 
 
 def row_to_dict(row):
@@ -19,10 +22,10 @@ with open('dane.html', encoding='iso-8859-2') as file:
 b = bs4.BeautifulSoup(a)
 rows = b.find_all('table')[3].find_all('tr')[1:]
 df = pd.DataFrame([row_to_dict(row) for row in rows])
-conn = pyodbc.connect(CONNECTION_STRING)
+conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna')
 cursor = conn.cursor()
-for row in df:
-    sql = f'INSERT INTO LokalizacjeMiast (nazwa, dlugosc, szerokosc) VALUES ({row.nazwa}, {row.dlugosc}, {row.szerokosc}, {row.wojewodztwo})'
-    cursor.execute(sql)
-cursor.commit()
+for _,row in df.iterrows():
+    dupa = f"INSERT INTO LokalizacjeMiast (nazwa, dlugosc, szerokosc, wojewodztwo) VALUES ('{row.nazwa}', {row.dlugosc}, {row.szerokosc}, '{row.wojewodztwo}')"
+    cursor.execute(dupa)
+conn.commit()
 conn.close()

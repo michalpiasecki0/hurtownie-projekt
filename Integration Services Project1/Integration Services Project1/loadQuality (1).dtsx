@@ -1,43 +1,43 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/7/2023 8:25:05 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MIKOLAJ2"
   DTS:CreatorName="MIKOLAJ2\mikol"
-  DTS:DTSID="{6A5A397F-D628-4EFC-ADC2-176D1010D5B1}"
+  DTS:DTSID="{7832498A-8A04-407E-8E2C-42A877F9F75F}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5223.0"
   DTS:LocaleID="2057"
   DTS:ObjectName="loadMiasta"
   DTS:PackageType="5"
   DTS:VersionBuild="12"
-  DTS:VersionGUID="{D7DD5209-49AA-4089-B43C-A3B1D77D2622}">
+  DTS:VersionGUID="{5A5D311F-C5BC-4A37-B469-3AF9D4E5FFF6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MIKOLAJ2.dwh]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{AED2C537-5C8B-413A-835F-6C9C947551A4}"
+      DTS:DTSID="{EA9AEED2-C8B1-4788-9373-7201D9ED9DE8}"
       DTS:ObjectName="MIKOLAJ2.dwh">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MIKOLAJ2;User ID=;Initial Catalog=dwh;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-loadMiasta-{AED2C537-5C8B-413A-835F-6C9C947551A4}MIKOLAJ2.dwh;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MIKOLAJ2;User ID=;Initial Catalog=dwh;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-loadMiasta-{EA9AEED2-C8B1-4788-9373-7201D9ED9DE8}MIKOLAJ2.dwh;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MIKOLAJ2.Operacyjna]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{0B630560-B8AA-4C7D-8051-3E9E8EC985BC}"
+      DTS:DTSID="{2008F9BA-3DC0-4EDB-AA57-9DA4AB188088}"
       DTS:ObjectName="MIKOLAJ2.Operacyjna">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MIKOLAJ2;User ID=;Initial Catalog=Operacyjna;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-loadMiasta-{0B630560-B8AA-4C7D-8051-3E9E8EC985BC}MIKOLAJ2.Operacyjna;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MIKOLAJ2;User ID=;Initial Catalog=Operacyjna;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-loadMiasta-{2008F9BA-3DC0-4EDB-AA57-9DA4AB188088}MIKOLAJ2.Operacyjna;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -47,7 +47,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{14C1E445-8792-4C7A-8B72-6D63D893CAA6}"
+      DTS:DTSID="{013AA73C-8F66-479B-9F7D-8E914C4D805D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"

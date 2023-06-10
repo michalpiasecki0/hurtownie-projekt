@@ -1,8 +1,11 @@
 import numpy as np
 import pandas as pd
-import pyodbc
+import pymssql
 
-CONNECTION_STRING = ''
+SERVER = 'MIKOLAJ2'
+LOGIN = 'wtykacz'
+PASSWORD = 'zcakytw'
+
 
 def get_kd_data_for_date(month, year=2022):
     kd_cols = ['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień', 'tmax', 'tmax_status',
@@ -22,7 +25,7 @@ def get_kd_data_for_date(month, year=2022):
 def kdt_data(month, year=2022):
     kdt_cols = ['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień', 'tavg_kdt', 'tavg_kdt_status',
                'wilgotnosc', 'wilgotnosc_status', 'wiatr', 'wiatr_status', 'chmury', 'chmury_status']
-    a = pd.read_csv(f'data_met/k_d_t_{month:0>2}_{year}.csv', header=None, names=kdt_cols, encoding='ISO-8859-2')
+    a = pd.read_csv(f'data_met\k_d_t_{month:0>2}_{year}.csv', header=None, names=kdt_cols, encoding='ISO-8859-2')
     a.fillna(0)
     a.loc[a['tavg_kdt_status'] == 8, 'tavg_kdt'] = np.NaN
     a.loc[a['wilgotnosc_status'] == 8, 'wilgotnosc'] = np.NaN
@@ -42,11 +45,11 @@ a = a.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 b = b.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 c = pd.concat([a,b], axis=1)
 c = c.reset_index()
-conn = pyodbc.connect(CONNECTION_STRING)
+conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna')
 cursor = conn.cursor()
-for row in c:
+for _,row in c.iterrows():
     sql = f'INSERT INTO Klimat (measurementdate , stacja, tmin, tavg, tmax, opad) VALUES' \
-          f' ({row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}, {row.nazwa_stacji}, {row.tmin}, {row.tavg},{row.tmax}, {row.opad})'
+          f" ('{row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}', '{row.nazwa_stacji}', {row.tmin}, {row.tavg},{row.tmax}, {row.opady_mm})"
     cursor.execute(sql)
 cursor.commit()
 conn.close()

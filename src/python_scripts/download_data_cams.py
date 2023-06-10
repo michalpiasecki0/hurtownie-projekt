@@ -1,4 +1,3 @@
-import cgi
 import cdsapi
 import xarray as xr
 
