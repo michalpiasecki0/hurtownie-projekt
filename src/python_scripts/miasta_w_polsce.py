@@ -25,7 +25,7 @@ df = pd.DataFrame([row_to_dict(row) for row in rows])
 conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna')
 cursor = conn.cursor()
 for _,row in df.iterrows():
-    dupa = f"INSERT INTO LokalizacjeMiast (nazwa, dlugosc, szerokosc, wojewodztwo) VALUES ('{row.nazwa}', {row.dlugosc}, {row.szerokosc}, '{row.wojewodztwo}')"
+    dupa = f"INSERT INTO LokalizacjeMiast (nazwa, dlugosc, szerokosc, wojewodztwo) VALUES ('{row.nazwa}', {float(row.dlugosc):f}, {float(row.szerokosc):f}, '{row.wojewodztwo}')"
     cursor.execute(dupa)
 conn.commit()
 conn.close()
