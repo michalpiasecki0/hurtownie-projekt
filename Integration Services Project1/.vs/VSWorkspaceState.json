@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Integration Services Project1"
+    "\\Integration Services Project1",
+    "\\Integration Services Project1\\bin",
+    "\\Integration Services Project1\\bin\\Development",
+    "\\Integration Services Project1\\Integration Services Project1",
+    "\\Integration Services Project1\\obj",
+    "\\Integration Services Project1\\obj\\Development"
   ],
   "PreviewInSolutionExplorer": false
 }

@@ -7,6 +7,7 @@ LOGIN = 'wtykacz'
 PASSWORD = 'zcakytw'
 
 
+
 def get_kd_data_for_date(month, year=2022):
     kd_cols = ['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień', 'tmax', 'tmax_status',
                'tmin', 'tmin_status', 'tavg', 'tavg_status', 'tmin_grunt', 'tmin_grunt_status',
@@ -45,11 +46,14 @@ a = a.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 b = b.set_index(['kod_stacji', 'nazwa_stacji', 'rok', 'miesiąc', 'dzień'])
 c = pd.concat([a,b], axis=1)
 c = c.reset_index()
-conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna')
+c.dropna(axis=0, inplace=True)
+conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna', charset='utf8')
 cursor = conn.cursor()
 for _,row in c.iterrows():
     sql = f'INSERT INTO Klimat (measurementdate , stacja, tmin, tavg, tmax, opad) VALUES' \
-          f" ('{row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}', '{row.nazwa_stacji}', {row.tmin}, {row.tavg},{row.tmax}, {row.opady_mm})"
-    cursor.execute(sql)
-cursor.commit()
+          " (%s, %s, %d, %d, %d, %d)"
+    print(sql)
+    sql = sql.replace(', nan', ', null')
+    cursor.execute(sql, (f'{row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}', row.nazwa_stacji, row.tmin, row.tavg, row.tmax, row.opady_mm))
+conn.commit()
 conn.close()

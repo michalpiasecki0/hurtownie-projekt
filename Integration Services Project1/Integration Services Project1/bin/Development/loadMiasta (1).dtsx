@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="loadMiasta"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{74B803A1-0C50-4E01-A1BC-30EEE074BA53}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{F94F13E3-CF76-42FF-96CD-7142A3AF6495}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,11 +58,11 @@
           version="1">
           <components>
             <component
-              refId="Package\loadmiasta\OLE DB Destination"
+              refId="Package\loadmiasta\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -95,11 +95,11 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -107,7 +107,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -115,7 +115,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\loadmiasta\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\loadmiasta\Insert Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MIKOLAJ2.dwh]"
                   connectionManagerRefId="Package.ConnectionManagers[MIKOLAJ2.dwh]"
                   description="The OLE DB runtime connection used to access the database."
@@ -123,61 +123,61 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nazwa]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].Columns[nazwa]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="nazwa"
-                      externalMetadataColumnId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nazwa]"
+                      externalMetadataColumnId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[nazwa]"
                       lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[nazwa]" />
                     <inputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wojewodztwo]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].Columns[wojewodztwo]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="wojewodztwo"
-                      externalMetadataColumnId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wojewodztwo]"
+                      externalMetadataColumnId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[wojewodztwo]"
                       lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[wojewodztwo]" />
                     <inputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[szerokosc]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].Columns[szerokosc]"
                       cachedDataType="r8"
                       cachedName="szerokosc"
-                      externalMetadataColumnId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[szerokosc]"
+                      externalMetadataColumnId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[szerokosc]"
                       lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[szerokosc]" />
                     <inputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dlugosc]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].Columns[dlugosc]"
                       cachedDataType="r8"
                       cachedName="dlugosc"
-                      externalMetadataColumnId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dlugosc]"
+                      externalMetadataColumnId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[dlugosc]"
                       lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[dlugosc]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                       dataType="i4"
                       name="id" />
                     <externalMetadataColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nazwa]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[nazwa]"
                       dataType="wstr"
                       length="50"
                       name="nazwa" />
                     <externalMetadataColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wojewodztwo]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[wojewodztwo]"
                       dataType="wstr"
                       length="50"
                       name="wojewodztwo" />
                     <externalMetadataColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[szerokosc]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[szerokosc]"
                       dataType="r8"
                       name="szerokosc" />
                     <externalMetadataColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dlugosc]"
+                      refId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[dlugosc]"
                       dataType="r8"
                       name="dlugosc" />
                   </externalMetadataColumns>
@@ -185,22 +185,172 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\loadmiasta\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\loadmiasta\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\loadmiasta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\loadmiasta\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\loadmiasta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\loadmiasta\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\loadmiasta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\loadmiasta\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\loadmiasta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\loadmiasta\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[miastodim] SET [dlugosc] = ?,[szerokosc] = ?,[wojewodztwo] = ? WHERE [nazwa] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\loadmiasta\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MIKOLAJ2.dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[MIKOLAJ2.dwh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].Columns[dlugosc]"
+                      cachedDataType="r8"
+                      cachedName="dlugosc"
+                      externalMetadataColumnId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[dlugosc]" />
+                    <inputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].Columns[nazwa]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nazwa"
+                      externalMetadataColumnId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[nazwa]" />
+                    <inputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].Columns[szerokosc]"
+                      cachedDataType="r8"
+                      cachedName="szerokosc"
+                      externalMetadataColumnId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[szerokosc]" />
+                    <inputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].Columns[wojewodztwo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="wojewodztwo"
+                      externalMetadataColumnId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[wojewodztwo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="r8"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="r8"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\loadmiasta\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -374,11 +524,176 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\loadmiasta\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [nazwa], [wojewodztwo] FROM [dbo].[miastodim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MIKOLAJ2.dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[MIKOLAJ2.dwh]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[nazwa]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nazwa"
+                      externalMetadataColumnId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nazwa]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[nazwa]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[wojewodztwo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="wojewodztwo"
+                      externalMetadataColumnId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[wojewodztwo]"
+                      lineageId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output].Columns[wojewodztwo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nazwa]"
+                      dataType="wstr"
+                      length="50"
+                      name="nazwa" />
+                    <externalMetadataColumn
+                      refId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[wojewodztwo]"
+                      dataType="wstr"
+                      length="50"
+                      name="wojewodztwo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
+              refId="Package\loadmiasta.Paths[Inferred Member Updates Output]"
+              endId="Package\loadmiasta\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\loadmiasta\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\loadmiasta.Paths[New Output]"
+              endId="Package\loadmiasta\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\loadmiasta\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
               refId="Package\loadmiasta.Paths[OLE DB Source Output]"
-              endId="Package\loadmiasta\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\loadmiasta\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="OLE DB Source Output"
               startId="Package\loadmiasta\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -409,29 +724,29 @@
     design-time-name="Package\loadmiasta">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\loadmiasta\OLE DB Destination"
-          TopLeft="464.37497924082,236.599988718033" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\loadmiasta\OLE DB Source"
-          TopLeft="470.874989366159,102.349998123646" />
+          TopLeft="238.166666666667,5.50000000000004" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\loadmiasta\Slowly Changing Dimension"
+          TopLeft="208.833333333333,108.166666666667" />
         <EdgeLayout
           Id="Package\loadmiasta.Paths[OLE DB Source Output]"
-          TopLeft="548.291650970156,145.016664790313">
+          TopLeft="313.5,48.1666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,91.5833239277207"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,84.0833239277207">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,84.0833239277207" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -440,11 +755,91 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\loadmiasta\Insert Destination"
+          TopLeft="5.50000000000006,210.833333333334" />
+        <EdgeLayout
+          Id="Package\loadmiasta.Paths[New Output]"
+          TopLeft="279.944444444444,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.444444444444,60.0000000000001"
+              Start="0,0"
+              End="-192.444444444444,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-188.444444444444,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.444444444444,24.2730720606827"
+                    Point2="-192.444444444444,24.2730720606827"
+                    Point3="-192.444444444444,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-192.444444444444,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.313608940972,29.2730720606827,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\loadmiasta\OLE DB Command"
+          TopLeft="230.166666666667,210.833333333334" />
+        <EdgeLayout
+          Id="Package\loadmiasta.Paths[Inferred Member Updates Output]"
+          TopLeft="347.055555555556,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5555555555555,60.0000000000001"
+              Start="0,0"
+              End="-33.5555555555555,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-29.5555555555555,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5555555555555,24.2730720606827"
+                    Point2="-33.5555555555555,24.2730720606827"
+                    Point3="-33.5555555555555,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-33.5555555555555,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.1807660590278,29.2730720606827,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\loadmiasta\OLE DB Destination">
+    design-time-name="Package\loadmiasta\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -457,15 +852,57 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\loadmiasta\OLE DB Source">
+    design-time-name="Package\loadmiasta\Slowly Changing Dimension">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
+        <Name>SCDMetadata</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{2CFD343C-7DAF-4F30-AFBC-5DD99595748A}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[miastodim]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[dlugosc]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;dlugosc&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[nazwa]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;nazwa&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[szerokosc]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;szerokosc&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[wojewodztwo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;wojewodztwo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
