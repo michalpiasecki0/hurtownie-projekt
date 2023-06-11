@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import pymssql
 
-SERVER = 'MIKOLAJ2'
-LOGIN = 'wtykacz'
-PASSWORD = 'zcakytw'
+SERVER = '127.0.0.1'
+LOGIN = 'dupa2'
+PASSWORD = 'dupa'
 
 
 def get_kd_data_for_date(month, year=2022):
@@ -49,7 +49,8 @@ conn = pymssql.connect(SERVER, LOGIN, PASSWORD, 'Operacyjna')
 cursor = conn.cursor()
 for _,row in c.iterrows():
     sql = f'INSERT INTO Klimat (measurementdate , stacja, tmin, tavg, tmax, opad) VALUES' \
-          f" ('{row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}', '{row.nazwa_stacji}', {row.tmin}, {row.tavg},{row.tmax}, {row.opady_mm})"
+          f" ('{row.rok}-{row.miesiąc:0>2}-{row.dzień:0>2}', '{row.nazwa_stacji}', {row.tmin}, {row.tavg}, {row.tmax}, {row.opady_mm})"
+    sql = sql.replace(', nan', ', null')
     cursor.execute(sql)
-cursor.commit()
+conn.commit()
 conn.close()

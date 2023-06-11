@@ -2,9 +2,9 @@ import bs4
 import pandas as pd
 import pymssql
 
-SERVER = 'MIKOLAJ2'
-LOGIN = 'wtykacz'
-PASSWORD = 'zcakytw'
+SERVER = '127.0.0.1'
+LOGIN = 'dupa2'
+PASSWORD = 'dupa'
 
 
 
