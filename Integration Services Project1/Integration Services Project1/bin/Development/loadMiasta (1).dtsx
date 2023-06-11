@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/7/2023 8:25:05 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="loadMiasta"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DDACDB5F-7CC5-44E0-B7B5-E9F0F3999E77}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{74B803A1-0C50-4E01-A1BC-30EEE074BA53}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -411,13 +411,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\loadmiasta\OLE DB Source"
-          TopLeft="470.874989366159,102.349998123646" />
-        <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\loadmiasta\OLE DB Destination"
           TopLeft="464.37497924082,236.599988718033" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\loadmiasta\OLE DB Source"
+          TopLeft="470.874989366159,102.349998123646" />
         <EdgeLayout
           Id="Package\loadmiasta.Paths[OLE DB Source Output]"
           TopLeft="548.291650970156,145.016664790313">
@@ -444,7 +444,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\loadmiasta\OLE DB Source">
+    design-time-name="Package\loadmiasta\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -457,7 +457,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\loadmiasta\OLE DB Destination">
+    design-time-name="Package\loadmiasta\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

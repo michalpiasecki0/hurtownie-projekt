@@ -50,7 +50,7 @@ CREATE TABLE AirQuality (
 CREATE TABLE Klimat (
 	id int not null primary key identity(1,1),
 	measurementdate date not null,
-	stacja nvarchar(50) not null references lokalizacjestacji(nazwa),
+	stacja nvarchar(50) not null,
 	tmin float,
 	tavg float,
 	tmax float,
