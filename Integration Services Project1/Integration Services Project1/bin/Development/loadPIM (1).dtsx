@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="loadPIM"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{A0F049DD-8ABF-4FF3-BAC0-69487D81598A}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{2BDC7DF5-E2B6-4EFD-A3EF-98138976F879}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4348,14 +4348,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
               startId="Package\Data Flow Task\Lookup 1.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup 2.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
               endId="Package\Data Flow Task\Script Component 1.Inputs[Input 0]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup 2.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Merge Join Output]"
               endId="Package\Data Flow Task\Lookup 1.Inputs[Lookup Input]"
@@ -4426,8 +4426,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="404.99998189509,449.733317960104" />
         <NodeLayout
           Size="98.6666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="737.499967031182,291.199986114502" />
+        <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Lookup 2"
+          TopLeft="249.999988824129,441.116650146644" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Data Flow Task\Script Component 1"
+          TopLeft="945.62495772727,268.449987199307" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
           Id="Package\Data Flow Task\Sort"
           TopLeft="520.62497672625,297.699985804558" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="34.9999984353782,434.849979264737" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Data Flow Task\Script Component"
+          TopLeft="503.124977508561,176.799991569519" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\Data Flow Task\OLE DB Source"
@@ -4437,29 +4457,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Data Flow Task\Merge Join"
           TopLeft="574.374974323437,391.949981310368" />
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="34.9999984353782,434.849979264737" />
-        <NodeLayout
-          Size="122.666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\Lookup 2"
-          TopLeft="249.999988824129,441.116650146644" />
-        <NodeLayout
-          Size="113.333333333334,42.6666666666667"
-          Id="Package\Data Flow Task\Lookup"
-          TopLeft="772.49996546656,144.29999311924" />
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Data Flow Task\Script Component"
-          TopLeft="503.124977508561,176.799991569519" />
-        <NodeLayout
           Size="108,42.6666666666667"
           Id="Package\Data Flow Task\klimat"
           TopLeft="773.12496543862,62.3999970245362" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\Sort 1"
-          TopLeft="737.499967031182,291.199986114502" />
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="772.49996546656,144.29999311924" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Sort Output1]"
           TopLeft="569.958310059583,340.366652471225">
@@ -4520,6 +4524,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     Point3="-126.236103818856,38.430538777088" />
                   <mssgle:LineSegment
                     End="-126.236103818856,50.5833285291992" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Output 01]"
+          TopLeft="945.62495772727,289.78332053264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109.458324029421,22.749998915195"
+              Start="0,0"
+              End="-101.958324029421,22.749998915195">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-50.7291620147105,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-50.7291620147105,0"
+                    Point2="-54.7291620147105,0"
+                    Point3="-54.7291620147105,4" />
+                  <mssgle:LineSegment
+                    End="-54.7291620147105,18.749998915195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.7291620147105,18.749998915195"
+                    Point2="-54.7291620147105,22.749998915195"
+                    Point3="-58.7291620147105,22.749998915195" />
+                  <mssgle:LineSegment
+                    End="-101.958324029421,22.749998915195" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4654,25 +4692,37 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
-          TopLeft="249.999988824129,459.316648039024">
+          TopLeft="829.166632133227,186.966659785907">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-42.9999903887508,0"
+              EndConnector="198.458325594043,81.4833274134003"
               Start="0,0"
-              End="-35.4999903887508,0">
+              End="198.458325594043,73.9833274134003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-35.4999903887508,0" />
+                    End="0,36.7416637067002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.7416637067002"
+                    Point2="0,40.7416637067002"
+                    Point3="4,40.7416637067002" />
+                  <mssgle:LineSegment
+                    End="194.458325594043,40.7416637067002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194.458325594043,40.7416637067002"
+                    Point2="198.458325594043,40.7416637067002"
+                    Point3="198.458325594043,44.7416637067002" />
+                  <mssgle:LineSegment
+                    End="198.458325594043,73.9833274134003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-65.9413819131254,5,96.3827734375,11.609375"
+              BoundingBox="51.0377760782715,45.7416637067002,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4712,85 +4762,48 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Data Flow Task\Script Component 1"
-          TopLeft="945.62495772727,268.449987199307" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
-          TopLeft="829.166632133227,186.966659785907">
+          TopLeft="249.999988824129,459.316648039024">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="198.458325594043,81.4833274134003"
+              EndConnector="-42.9999903887508,0"
               Start="0,0"
-              End="198.458325594043,73.9833274134003">
+              End="-35.4999903887508,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.7416637067002" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.7416637067002"
-                    Point2="0,40.7416637067002"
-                    Point3="4,40.7416637067002" />
-                  <mssgle:LineSegment
-                    End="194.458325594043,40.7416637067002" />
-                  <mssgle:CubicBezierSegment
-                    Point1="194.458325594043,40.7416637067002"
-                    Point2="198.458325594043,40.7416637067002"
-                    Point3="198.458325594043,44.7416637067002" />
-                  <mssgle:LineSegment
-                    End="198.458325594043,73.9833274134003" />
+                    End="-35.4999903887508,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="51.0377760782716,45.7416637067002,96.3827734375,11.609375"
+              BoundingBox="-65.9413819131254,5,96.3827734375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Output 01]"
-          TopLeft="945.62495772727,289.78332053264">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109.458324029421,22.749998915195"
-              Start="0,0"
-              End="-101.958324029421,22.749998915195">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-50.7291620147105,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-50.7291620147105,0"
-                    Point2="-54.7291620147105,0"
-                    Point3="-54.7291620147105,4" />
-                  <mssgle:LineSegment
-                    End="-54.7291620147105,18.749998915195" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54.7291620147105,18.749998915195"
-                    Point2="-54.7291620147105,22.749998915195"
-                    Point3="-58.7291620147105,22.749998915195" />
-                  <mssgle:LineSegment
-                    End="-101.958324029421,22.749998915195" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup 1">
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup 2">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -4800,7 +4813,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[datedim]</Value>
+          type="q3:string">[dbo].[miastodim]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -4826,48 +4839,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup 2">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[miastodim]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4894,6 +4871,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[datedim]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
